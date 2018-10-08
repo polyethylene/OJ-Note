@@ -1,5 +1,6 @@
 1.对 interger 不应该使用 sqrt(int)，在isPrime(int) 中可以使用
-for(int i;i*i<n;i++)
-{
-    \\...
-}
+    for(int i;i*i<n;i++)
+    {
+        \\...
+    }
+这样使花费时间减少将近一半
