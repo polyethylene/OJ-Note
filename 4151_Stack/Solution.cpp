@@ -1,44 +1,46 @@
-#include<iostream>
+#include <iostream>
 
-const int max_size = 1e6 + 7;
+using namespace std;
 
-int stack[max_size];
-int seq[max_size];
+const int max_len = 1e6 + 7;
+int times;
 int top = 0;
+int stack[max_len];
+int n;
 
 int main() {
-    int num, size;
-    std::cin >> num;
-    for (int i = 0; i < num; i++) {
-        std::cin >> size;
-        for (int j = 0; j < size; j++) {
-            std::cin >> seq[j];
-        }
-        int count = 0;
-        int n = 1;
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    bool test;
+    cin >> times;
+    for (int i = 0; i < times; i++) {
+        int max = 0;
+        test = true;
         top = 0;
-        while (count < size) {
-            if (seq[count] == n) {
-                n++;
-                count++;
-            } else if (top != 0 && seq[count] == stack[top - 1]) {
-                top--;
-                count++;
-            } else if (top != 0 && seq[count] < n && seq[count] != stack[top - 1]) {
-                top = 1;
-                break;
-            } else if (n < size + 1) {
-                stack[top++] = n;
-                n++;
-            } else {
-                top = 1;
-                break;
+        int len;
+        cin >> len;
+        for (int j = 0; j < len; j++) {
+            cin >> n;
+            if (test) {
+                if (n > max) {
+                    for (int j = max + 1; j < n; j++) {
+                        stack[top++] = j;
+                    }
+                    max = n;
+                } else {
+                    if (stack[top-1]==n)
+                        top--;
+                    else
+                        test = false;
+                }
             }
         }
-        if (!top)
-            std::cout << "Yes\n";
+        if (test)
+            cout << "Yes\n";
         else
-            std::cout << "No\n";
+            cout << "No\n";
     }
+    cout << flush;
     return 0;
 }
