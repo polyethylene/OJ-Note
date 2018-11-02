@@ -24,9 +24,8 @@ int main() {
             cin >> n;
             if (test) {
                 if (n > max) {
-                    for (int j = max + 1; j < n; j++) {
+                    for (int j = max + 1; j < n; j++)
                         stack[top++] = j;
-                    }
                     max = n;
                 } else {
                     if (stack[top-1]==n)
