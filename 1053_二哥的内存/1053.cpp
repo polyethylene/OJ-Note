@@ -18,14 +18,6 @@ void swap(T &a, T &b) {
     b = tmp;
 }
 
-bool cmp(dot &a, dot &b) {
-    if (a.first.first != b.first.first) {
-        return a.first < b.first;
-    } else {
-        return a.second < b.second;
-    }
-}
-
 int find(int x, int y) {
     for (int i = 0; i < size; i++) {
         if (li[i].first.first == x && li[i].first.second == y) {
